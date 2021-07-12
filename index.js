@@ -20,6 +20,18 @@ const fakeHeader = merkleRoot => Buffer.concat([
   crypto.randomBytes(12) // time, bits, nonce
 ]).toString('hex')
 
+/**
+ * Generate a fake TSC-format merkle proof
+ *
+ * @func mockle
+ *
+ * @param {Object} [param={}] All parameters are given in an object
+ * @param {String} [param.txOrId="A random TXID"] A custom transaction or transaction ID to use for the proof, instead of randomly generating a TXID
+ * @param {String} [param.targetType="merkleRoot"] A custom target type for the proof, either "hash", "header" or "merkleRoot" which is the default
+ * @param {Number} [param.index="random between 0 and 255"] A custom index in the block for the mock proof, by default it will be a random integer between 0 and 255. The larger the index, the larger your proof will be. Every doubling of the index value will add another node to the proof
+ *
+ * @returns {Object} the TSC format merkle proof given as a JavaScript object
+ */
 module.exports = ({
   txOrId = rand256(),
   targetType = 'merkleRoot',
