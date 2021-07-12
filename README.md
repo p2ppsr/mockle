@@ -2,6 +2,14 @@
 
 Mock TSC merkle proof generator
 
+## Installation
+
+```sh
+npm i mockle
+# or
+yarn add mockle
+```
+
 ## Notes
 
 This tool generates mocked (fake) SPV proofs in the JSON TSC format, and returns them as JavaScript objects. It does this by taking the given transaction or transaction ID (or by randomly generating a TXID), and then hashing it with randomly generated merkle branches to arrive at a random merkle root.
